@@ -49,5 +49,7 @@ if (!empty($genre_item)) {
     $json_response["data"]["title"] = $genre_item_title;
     header('Content-Type: application/json');
     echo json_encode($json_response);
+    $html->clear();
+    unset($html);
 }
 ?>

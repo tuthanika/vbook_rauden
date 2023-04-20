@@ -3,21 +3,18 @@
     include $_SERVER['DOCUMENT_ROOT'] . "/inc/function.php";
 
     if (!empty($keyword2)) {
-        $link_url = "https://so.html5.qq.com/ajax/real/search_result?tabId=360&noTab=1&q=" . $keyword2;
+        $link_url = "http://api.17k.com/v2/book/search?app_key=4037465544&sort_type=0&page=0&class=0&key=".$keyword2."&_versions=971&client_type=1&_filter_data=1&channel=2&merchant=17KH5&_access_version=2&cps=0";
         $res_json = curl_json($link_url);
-        $all_book = $res_json['data']['state'];
+        $all_book = $res_json['data'];
         $item_list = array();
-        foreach ($all_book as $e) {
-            if (isset($e["items"]) && count($e["items"]) > 0) {
-                $e1 = $e["items"][0];
-                $jump_url = $e1["jump_url"];
-                preg_match('/bookid=(\d+)/', $jump_url, $matches);
+        foreach ($all_book as $e1) {
+            if (isset($e1["id"])) {
 
-                $book_id = $matches[1];
-                $cover_img = $e1['cover_url'];
+                $book_id = $e1['id'];
+                $cover_img = $e1['cover'];
                 $cover_img = str_replace('http://', 'https://', $cover_img);
-                $author = $e1['author'];
-                $book_name = $e1["title"];
+                $author = $e1['author_name'];
+                $book_name = $e1["book_name"];
 
                 $item_data = array("book_id" => $book_id, "book_name" => $book_name, "author" => $author, "cover_img" => $cover_img);
                 array_push($item_list, $item_data);

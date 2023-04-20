@@ -84,13 +84,22 @@ $site_config_list = array(
     ),
     array(
         "name" => "69shu",
-        "source" => "https://www.uukanshu.com",
+        "source" => "https://www.69shu.com",
         "regexp" => "/69shu.com\/txt\/(\d+).htm/",
         "type" => "chinese_novel",
         "type_embed" => "noembed",
         "sample" => "https://www.69shu.com/txt/41121.htm",
         "locale" => "zh_CN"
     ),
+    // array(
+    //     "name" => "ishuquge",
+    //     "source" => "https://www.ishuquge.la",
+    //     "regexp" => "/ishuquge.la\/txt\/(\d+)/",
+    //     "type" => "chinese_novel",
+    //     "type_embed" => "noembed",
+    //     "sample" => "https://www.ishuquge.la/txt/175555/",
+    //     "locale" => "zh_CN"
+    // ),
     array(
         "name" => "forew",
         "source" => "https://forew.7m.pl",
@@ -99,6 +108,15 @@ $site_config_list = array(
         "type_embed" => "embed",
         "sample" => "",
         "locale" => "vi_VN"
+    ),
+    array(
+        "name" => "nhimmeo",
+        "source" => "https://nhimmeo.cf",
+        "regexp" => "/nhimmeo.cf\/book\/(\d+)/",
+        "type" => "novel",
+        "type_embed" => "noembed",
+        "sample" => "https://nhimmeo.cf/book/100193703",
+        "locale" => "zh_CN"
     ),
 );
 

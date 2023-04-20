@@ -1,0 +1,14 @@
+RewriteEngine on
+RewriteRule ^settings/? settings.php
+RewriteRule ^bookshelf/? bookshelf.php
+ErrorDocument 404 /404
+
+RewriteRule ^404/? 404.php
+
+
+RewriteRule ^site/([a-z0-9]{1,25})/?$ /site.php?cweb=$1 [QSA]
+RewriteRule ^site/([a-z0-9]{1,25})/([a-z0-9]+)/?$ /detail.php?cweb=$1&q=$2
+RewriteRule ^site/([a-z0-9]{1,25})/([a-z0-9]+)/catalog/?$ /catalog.php?cweb=$1&q=$2
+RewriteRule ^site/([a-z0-9]{1,25})/([a-z0-9]+)/([a-z0-9]+)/?$ /chap.php?cweb=$1&k=$2&q=$3 [L]
+RewriteRule ^site/([a-z0-9]{1,25})/([a-z0-9]+)/?$ /chap.php?cweb=$1&q=$2
+RewriteRule ^site/([a-z0-9]{1,25})/([a-z0-9]+)/api/catalog/?$ /api/$1/catalog.php?q=$2

@@ -34,6 +34,8 @@
         header('Content-Type: application/json');
 
         echo json_encode($json_response);
+        $html->clear();
+        unset($html);
     }
     else {
         die();

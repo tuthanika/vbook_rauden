@@ -8,24 +8,23 @@
     $chapter_id = $keyword;
     $book_id = $kfolder;
 
-    $link_url =  "https://www.69shu.com/txt/".$book_id."/".$chapter_id."";
+    $link_url =  "https://www.ishuquge.la/txt/".$book_id."/".$chapter_id.".html";
 
-    $res_html = curl_normal_gb2312($link_url);
+
+    $res_html = curl_normal($link_url);
     // create a new DOM object from the string
     $html = str_get_html($res_html);
 
-    $title = $html->find('div.txtnav > h1', 0) ->plaintext;
-    $content = $html->find('div.txtnav', 0);
+    $title = $html->find('h1', 0) ->plaintext;
+    $contentBox = $html->find('#content', 0);
 
+    foreach($contentBox->find('#center_tip') as $adContent) {
+        $adContent->outertext = '';
+    }
 
-    $content = ($content->plaintext);
-    $content = str_replace('(本章完)', '', $content); // remove trailing text
-    $content = str_replace('&emsp;', '', $content); // remove trailing text
-    $content = trim($content);
-    $arr = explode(PHP_EOL, $content);
-    $firstElement = array_shift($arr);
-    $content = join('<br>', $arr);
-
+    $content = $contentBox->innertext;
+    $content = preg_replace('/&nbsp;/u', '', $content);
+    $content = explode('https://www.ishuquge.la', $content)[0];
     
     $response = array(
         'data' => array(
@@ -36,8 +35,8 @@
 
     header('Content-Type: application/json');
     echo json_encode($response);
-
     $html->clear();
     unset($html);
+
 ?>
 

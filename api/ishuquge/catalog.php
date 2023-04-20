@@ -8,39 +8,35 @@
         die();
     }
     $book_id  = $keyword;
-    $link_url =  "https://www.uukanshu.com/b/" . $book_id . "/";
+    $link_url =  "https://www.ishuquge.la/txt/" . $book_id . "/";
 
-    $res_html = curl_normal_gb2312($link_url);
+    $res_html = curl_normal($link_url);
     // create a new DOM object from the string
     $html = str_get_html($res_html, false);
+    $listmain = $html->find('div[class=listmain]', 0);
 
-    $li_elements = $html->find('#chapterList > li');
+    $li_elements = $listmain->find('dd');
+
     $item_list = array();
     $chapter_number = 0;
     // loop through the li elements and output their text content
-    $li_elements =  array_reverse($li_elements);
     foreach ($li_elements as $li) {
-        $linkElement = $li->find('a', 0);
-        if (!empty($linkElement)) {
+        // $linkElement = $li->find('a', 0);
+        // if (!empty($linkElement)) {
             $chapter_number++;
-
             $name = $li->find('a', 0)->plaintext;
             $chapter_id = $li->find('a', 0)->href;
 
-            preg_match('/\/(\d+)\.html$/', $chapter_id, $matches);
+            preg_match('/(\d+)\.html$/', $chapter_id, $matches);
             $chapter_id = $matches[1];
-            if (strpos($li->plaintext, '[待更新]') !== false) {
-                $on = false;
-            } else {
-                $on = true;
-            }
+            $on = true;
 
 
             $item_data = array("name" => $name, "url" => $chapter_id, "index" => $chapter_number, "on" => $on);
             array_push($item_list, $item_data);
         }
         
-    }
+    // }
 
 
 

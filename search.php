@@ -26,7 +26,16 @@ if (!empty($keyword)) {
     }
     // if not search in site
     if ($cweb === "null") {
-        header("Location: /404/");
+        
+        echo '<title>Search</title>';
+        include $_SERVER['DOCUMENT_ROOT'] . "/inc/header.php";
+        include("search_widget.php");
+        
+        echo '<h3 class="center">You need to go to a website (>Browser), to be able to search by keyword.</h3>';
+        
+        include $_SERVER['DOCUMENT_ROOT'] . "/inc/footer.php";
+        
+        // header("Location: /404/");
         die();
     }
 
