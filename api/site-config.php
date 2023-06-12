@@ -2,7 +2,7 @@
 
 $site_config_list = array(
     array(
-        "name" => "metruyencv",
+        "name" => "truyencv",
         "source" => "https://metruyencv.com",
         "regexp" => "/api.mottruyen.com\/story\/\?story_id=(\d+)/",
         "type" => "novel",
@@ -46,33 +46,33 @@ $site_config_list = array(
         "sample" => "https://infosxs.pysmei.com/BookFiles/Html/649/648058/info.html",
         "locale" => "zh_CN"
     ),
-    array(
-        "name" => "qidian",
-        "source" => "http://qidian.com",
-        "regexp" => "/qidian\.com\/(?:info|book)\/(\d+)/",
-        "type" => "chinese_novel",
-        "type_embed" => "noembed",
-        "sample" => "https://book.qidian.com/info/1036370336/",
-        "locale" => "zh_CN"
-    ),
-    array(
-        "name" => "fanqienovel",
-        "source" => "https://fanqienovel.com",
-        "regexp" => "/fanqienovel.com\/page\/(\d+)/",
-        "type" => "chinese_novel",
-        "type_embed" => "noembed",
-        "sample" => "https://fanqienovel.com/page/7042175102489725963",
-        "locale" => "zh_CN"
-    ),
-    array(
-        "name" => "17k",
-        "source" => "https://17k.com",
-        "regexp" => "/.17k.com\/book\/(\d+).html$/",
-        "type" => "chinese_novel",
-        "type_embed" => "noembed",
-        "sample" => "https://www.17k.com/book/2275375.html",
-        "locale" => "zh_CN"
-    ),
+    // array(
+    //     "name" => "qidian",
+    //     "source" => "http://qidian.com",
+    //     "regexp" => "/qidian\.com\/(?:info|book)\/(\d+)/",
+    //     "type" => "chinese_novel",
+    //     "type_embed" => "noembed",
+    //     "sample" => "https://book.qidian.com/info/1036370336/",
+    //     "locale" => "zh_CN"
+    // ),
+    // array(
+    //     "name" => "fanqienovel",
+    //     "source" => "https://fanqienovel.com",
+    //     "regexp" => "/fanqienovel.com\/page\/(\d+)/",
+    //     "type" => "chinese_novel",
+    //     "type_embed" => "noembed",
+    //     "sample" => "https://fanqienovel.com/page/7042175102489725963",
+    //     "locale" => "zh_CN"
+    // ),
+    // array(
+    //     "name" => "17k",
+    //     "source" => "https://17k.com",
+    //     "regexp" => "/.17k.com\/book\/(\d+).html$/",
+    //     "type" => "chinese_novel",
+    //     "type_embed" => "noembed",
+    //     "sample" => "https://www.17k.com/book/2275375.html",
+    //     "locale" => "zh_CN"
+    // ),
     array(
         "name" => "uukanshu",
         "source" => "https://www.uukanshu.com",

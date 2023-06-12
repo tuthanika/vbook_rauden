@@ -19,7 +19,8 @@ async function googleTranslateElementInit() {
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
 
-<script async defer src="https://umami.nhimmeo.cf/stats/script.js" data-website-id="e621a64e-375a-4ee1-9cf6-c4c55632336e"></script>
+
+<script data-goatcounter="https://raudo.goatcounter.com/count" async src="https://umami.nhimmeo.cf/count.js"></script>
 
 
 </body>

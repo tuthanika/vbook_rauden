@@ -24,14 +24,14 @@ if (!empty($genre_item)) {
     $li_elements = $html->find('#rank-view-list > div > ul > li');
 
     foreach ($li_elements as $li) {
-        $book_name = $li->find('h4 > a', 0)->plaintext;
+        $book_name = html_entity_decode($li->find('h4 > a', 0)->plaintext);
         $book_id = $li->find('h4 > a', 0)->href;
         preg_match('/\/doc-truyen\/(.+)/', $book_id, $matches);
         $book_id = $matches[1];
         $book_id = bin2hex($book_id);
 
         $cover_img = $li->find('img', 0)->src;
-        $author = $li->find('.author > a.name', 0)->plaintext;
+        $author = html_entity_decode($li->find('.author > a.name', 0)->plaintext);
 
         
         $novel = array(

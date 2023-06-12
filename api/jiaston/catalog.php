@@ -3,12 +3,14 @@
     if (empty($keyword)) {
         die();
     }
+
     $book_id  = $keyword;
     $folder_id = floor($book_id / 1000) + 1;
 
     $link_url = "https://contentxs.pysmei.com/BookFiles/Html/". $folder_id ."/" . $book_id . "/";
 
     $json1 = curl_normal($link_url);
+
     preg_match_all('/"id":(\d+),"name":"(.*?)","hasContent":(\d+)/', $json1, $item_data_list, PREG_SET_ORDER);
 
     $item_list = array();

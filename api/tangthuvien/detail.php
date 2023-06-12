@@ -39,12 +39,12 @@ $cover_img = $html->find('#bookImg > img', 0)->src;
 if (strpos($cover_img, "//") === 0) {
     $cover_img = "https:" . $cover_img;
 }
-$description = $html->find('.book-intro', 0)->innertext;
+$description = html_entity_decode($html->find('.book-intro', 0)->innertext);
 
 
 
 $author = $jsonData['author']['name'];
-$book_name = $html->find('h1', 0)->plaintext;
+$book_name = html_entity_decode($html->find('h1', 0)->plaintext);
 $source = $link_url;
 $ongoing = strpos($html->find('p.tag', 0)->innertext, '>Đang ra<') ? '1' : '0';
 

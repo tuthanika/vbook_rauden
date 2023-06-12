@@ -5,10 +5,6 @@ include $_SERVER['DOCUMENT_ROOT'] . "/inc/function.php";
 if (empty($page_show)) {
     $page_show = '1';
 }
-$page_show = intval($page_show);
-$page_show = 20 * ($page_show - 1);
-
-
 $cweb = explode('/', parse_url("$_SERVER[REQUEST_URI]", PHP_URL_PATH))[2];
 $link_url = "http" . (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "s" : "") . "://" . $_SERVER['SERVER_NAME'] . "/api/" . $cweb . "/genre.php";
 $json1 = curl_json($link_url);
@@ -18,24 +14,15 @@ $genre_item_title = $genre_item_list[$index]["title"];
 
 if (!empty($genre_item)) {
     $item_list = array();
-    $link_url1 = str_replace('{{page}}', $page_show, $genre_item);
-
-    $json2 = curl_json($link_url1);
-    $json3 = $json2["data"]["book_list"];
-    foreach ($json3 as $item) {
-        if (isset($item['bookName']))
-        {
-            // $cover_img = "https://p1-tt.byteimg.com/origin/".$item['thumbUri'].".jpg";
-            $cover_img = $item['thumbUri']."";
-
-            $novel = array(
-                'book_name' => $item['bookName'],
-                'book_id' => $item['bookId'],
-                'cover_img' => $cover_img,
-                'author' => $item['author'],
-            );
-            array_push($item_list, $novel);
-        }
+    $json2 = curl_json($genre_item . "&page=" . $page_show);
+    foreach ($json2["data"] as $item) {
+        $novel = array(
+            'book_name' => $item['NAME'],
+            'book_id' => $item['ID'],
+            'cover_img' => $item['THUMB'],
+            'author' => $item['AUTHOR'],
+        );
+        array_push($item_list, $novel);
     }
 
     $json_response = array(
