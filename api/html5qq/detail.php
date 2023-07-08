@@ -8,8 +8,8 @@
     $source = "https://bookshelf.html5.qq.com/qbread/api/novel/intro-info?bookid=".$book_id;
     $curl = curl_init($link_url);
     $headers = array(
-	"user-agent":"Mozilla/5.0 (Linux; Android 10; MI 8 Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.101 Mobile Safari/537.36",
-        "Referer: https://bookshelf.html5.qq.com/qbread",
+        "user-agent":"Mozilla/5.0 (Linux; Android 10; MI 8 Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/83.0.4103.101 Mobile Safari/537.36",
+        "Referer":"https://bookshelf.html5.qq.com/qbread",
     );
     curl_setopt_array($curl, array(
         CURLOPT_HTTPHEADER => $headers,
@@ -58,3 +58,5 @@
 
 
 ?>
+
+
