@@ -20,7 +20,7 @@
     $resp = curl_exec($curl);
     curl_close($curl);
     $response1 = json_decode($resp, true);
-	$data = $response1['data'];
+    $data = $response1['data'];
     $book = $data['bookInfo'];
     $book_name = $book['resourceName'];
     $author = $book['author'];
